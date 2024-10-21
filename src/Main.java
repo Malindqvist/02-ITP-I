@@ -15,7 +15,7 @@ public class Main {
         }
 
         if(text.contains("stop")){
-            System.out.println("Characters: " + cc.getChars());;
+            System.out.println("Characters: " + cc.getChars());
             System.out.println("Rows: " + cc.getRows());
             System.out.println("Words: " + cc.getWords());
         }
