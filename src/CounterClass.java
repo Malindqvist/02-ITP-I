@@ -1,5 +1,5 @@
 public class CounterClass {
-    private int longest;
+    //private int longest;
     private int rows;
     private int chars;
     private int words;
@@ -20,7 +20,7 @@ public class CounterClass {
     //Räknar raderna, tecken och ord. Har koll på det längsta ordet och om användaren skriver "stop"
     //För varje rad som skrivs körs denna metod. Input är strängen som skrivits in.
     public void counter(String text) {
-
+//      Test
 //        if(this.text.length() > longest || longest == 0){
 //            System.out.println("Hej!");
 //        }
