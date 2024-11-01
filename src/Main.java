@@ -17,5 +17,6 @@ public class Main {
         System.out.println("Characters: " + cc.getChars());
         System.out.println("Rows: " + cc.getRows());
         System.out.println("Words: " + cc.getWords());
+        System.out.println("Longest word: " + cc.getLongestWord());
     }
 }
