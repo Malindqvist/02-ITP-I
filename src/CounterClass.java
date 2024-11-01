@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class CounterClass {
     private int longest;
     private int rows;
@@ -19,20 +21,30 @@ public class CounterClass {
 
     //Räknar raderna, tecken och ord. Har koll på det längsta ordet och om användaren skriver "stop"
     //För varje rad som skrivs körs denna metod. Input är strängen som skrivits in.
-    public void counter(String text) {
 
-//        if(this.text.length() > longest || longest == 0){
-//            System.out.println("Hej!");
-//        }
+    public boolean counter(String text) {
+        if(!text.contains("stop")){
+            //Ökar rows med 1
+            rows++;
 
-        //Ökar rows med 1
-        rows++;
-        //Lägger till strängens längd i variabeln chars
-        chars += text.length();
+            //Lägger till strängens längd i variabeln chars
+            chars += text.length();
 
-        //Skapar en array av strängar, separerat av mellanslag.
-        //Antal ord i arrayen räknas sedan med .length
-        words += text.trim().split("\\s+").length;
+            //Skapar en array av strängar, separerat av mellanslag.
+            String[] wordsArray = text.trim().split(" ");
+
+            //Antal ord i arrayen räknas med .length "- 1" används eftersom en array börjar på 0
+            words += wordsArray.length;
+
+
+            //Plockar ut det längsta ordet och jämför längden med tidigare inskrivna längsta-ord
+            //longest =
+            return true;
+        } else {
+            return false;
+        }
+
+
     }
 
     //Returnerar antalet rader
@@ -49,4 +61,8 @@ public class CounterClass {
     public int getWords(){
         return words;
     }
+
+//    public String getLongest() {
+//        return longest;
+//    }
 }
