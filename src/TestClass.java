@@ -3,18 +3,27 @@ import static org.junit.Assert.assertEquals;
 
 public class TestClass {
     @Test
-    void testIfEmpty(){
+    //Kontrollerar om strängen är tom
+    void testIsEmptyString(){
         CounterClass cc = new CounterClass();
-        boolean expected = false;
+        boolean expected = true;
 
-        boolean actual = true;
+        boolean actual = cc.isEmptyString("");
         assertEquals(expected, actual);
     }
 
-    //test för stopp
-    //test för längsta
+    @Test
+    //Kontrollerar att det går att skriva endast ett mellanslag som input
+    void testIsEmptyStringWithSpace(){
+        CounterClass cc = new CounterClass();
+        boolean expected = false;
+
+        boolean actual = cc.isEmptyString(" ");
+        assertEquals(expected, actual);
+    }
 
     @Test
+    //Testar att raderna räknas korrekt
     void testCounterRows(){
         CounterClass cc = new CounterClass();
         cc.counter("katt ko häst");
@@ -26,6 +35,7 @@ public class TestClass {
     }
 
     @Test
+    //Testar att tecken räknas korrekt
     void testCounterChars(){
         CounterClass cc = new CounterClass();
         cc.counter("katt ko häst");
@@ -36,33 +46,45 @@ public class TestClass {
     }
 
     @Test
+    //Testar att orden räknas korrekt
+    void testCounterWords(){
+        CounterClass cc = new CounterClass();
+        cc.counter("katt ko häst");
+        cc.counter("katt ko häst");
+        int expected = 6;
+
+        int actual = cc.getWords();
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    //Testar beräkningen för det längsta ordet
     void testLongestWord(){
         CounterClass cc = new CounterClass();
         cc.counter("häst katten ko");
         String expected = "katten";
 
-//        String actual = cc.getLongest();
-//        assertEquals(expected, actual);
+        String actual = cc.getLongestWord();
+        assertEquals(expected, actual);
     }
 
     @Test
+    //Testar att funktionen reagerar på ordet "stop"
     void testStopInput(){
         CounterClass cc = new CounterClass();
-        cc.counter("stop");
         boolean expected = false;
+
         boolean actual = cc.counter("stop");
+        assertEquals(expected, actual);
     }
 
+    @Test
+    //Testar att funktionen inte reagerar på ordet "stopp"
+    void testStopInputStopp(){
+        CounterClass cc = new CounterClass();
+        boolean expected = true;
+
+        boolean actual = cc.counter("stopp");
+        assertEquals(expected, actual);
+    }
 }
-
-/* Testklass som testar logikklassens output. T.ex.
-Tomt, ingen text
-Kontrollera rader
-Kontrollera tecken
-Testa en gräns eller olika metoder
-
-JUnit-testfall
-Till programmet ska minst tre JUnit-testfall skrivas
-Testfallen ska skilja sig märkvärt åt och testa olika delar av programmet
-Programmet ska versionhanteras och finnas tillgängligt på GitHub
-Endast en länk till repo med koden behöver lämnas in för del 2 */

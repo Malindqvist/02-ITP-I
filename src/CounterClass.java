@@ -1,4 +1,3 @@
-import java.util.Arrays;
 
 public class CounterClass {
     private String longestWord = "";
@@ -23,7 +22,7 @@ public class CounterClass {
     //För varje rad som skrivs körs denna metod. Input är strängen som skrivits in.
 
     public boolean counter(String text) {
-        if(!text.contains("stop")){
+        if(!text.equalsIgnoreCase("stop")){
             //Ökar rows med 1
             rows++;
 
@@ -39,7 +38,7 @@ public class CounterClass {
             //Plockar ut det längsta ordet och jämför längden med tidigare inskrivna längsta-ord
             //longest =
             for(String word : wordsArray){
-                if(word.length() >= longestWord.length()){
+                if(word.length() > longestWord.length()){
                     longestWord = word;
                 }
             }
@@ -68,5 +67,9 @@ public class CounterClass {
 
     public String getLongestWord() {
         return longestWord;
+    }
+
+    public boolean isEmptyString(String text) {
+        return text != null && text.isEmpty();
     }
 }
