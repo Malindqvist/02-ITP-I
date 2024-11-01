@@ -10,10 +10,12 @@ public class Main {
 
         System.out.println("Enter text, write 'stop' to calculate the number of characters, rows, words and the longest word.");
 
+        //Så länge metoden counter() returnerar true så fortsätter programmet att läsa in textrader
         do {
             text = scanner.nextLine();
         } while (cc.counter(text));
 
+        //Hämtar och skriver ut resultatet från CounterClass
         System.out.println("Characters: " + cc.getChars());
         System.out.println("Rows: " + cc.getRows());
         System.out.println("Words: " + cc.getWords());
