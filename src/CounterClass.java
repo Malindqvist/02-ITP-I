@@ -4,23 +4,9 @@ public class CounterClass {
     private int rows;
     private int chars;
     private int words;
-    /* Skriv ett program som läser in text ifrån kommandoraden rad för rad tills användaren skriver ordet stop.
-
-    När användaren är klar skriver programmet ut antal tecken och hur många rader som användaren har skrivit, exklusive raden med ordet stop.
-
-            Scanner
-    Vi skriver själva, programmet räknar rader och skriver ut antalet tecken
-
-    Programmet ska bestå av två klasser:
-    mainClass läser in text och skriver ut resultatet till användaren
-    counterClass: räknar raderna, antal tecken
-    testClass: testfall som testar counterClass
-
-    Programmet ska versionhanteras och finnas tillgängligt på GitHub */
 
     //Räknar raderna, tecken och ord. Har koll på det längsta ordet och om användaren skriver "stop"
     //För varje rad som skrivs körs denna metod. Input är strängen som skrivits in.
-
     public boolean counter(String text) {
         if(!text.equalsIgnoreCase("stop")){
             //Ökar rows med 1
@@ -32,22 +18,22 @@ public class CounterClass {
             //Skapar en array av strängar, separerat av mellanslag.
             String[] wordsArray = text.trim().split(" ");
 
-            //Antal ord i arrayen räknas med .length "- 1" används eftersom en array börjar på 0
+            //Antal ord i arrayen räknas med .length
             words += wordsArray.length;
 
             //Plockar ut det längsta ordet och jämför längden med tidigare inskrivna längsta-ord
-            //longest =
             for(String word : wordsArray){
                 if(word.length() > longestWord.length()){
                     longestWord = word;
                 }
             }
+
+            //Metoden returnerar true och nästa rad läses in i Main-metoden
             return true;
         } else {
+            //Om texten innehåller ordet "stop" returneras false och resultatet skrivs ut via Main-metoden
             return false;
         }
-
-
     }
 
     //Returnerar antalet rader
@@ -65,11 +51,13 @@ public class CounterClass {
         return words;
     }
 
+    //Returnerar det längsta ordet
     public String getLongestWord() {
         return longestWord;
     }
 
+    //Kontrollerar om strängen är tom
     public boolean isEmptyString(String text) {
-        return text != null && text.isEmpty();
+        return text.isEmpty();
     }
 }
