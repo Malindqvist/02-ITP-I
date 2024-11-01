@@ -8,7 +8,7 @@ public class Main {
         CounterClass cc = new CounterClass();
         String text;
 
-        System.out.println("Skriv en text, skriv 'stop' för att avsluta");
+        System.out.println("Enter text, write 'stop' to calculate the number of characters, rows, words and the longest word.");
 
         do {
             text = scanner.nextLine();
@@ -17,6 +17,6 @@ public class Main {
         System.out.println("Characters: " + cc.getChars());
         System.out.println("Rows: " + cc.getRows());
         System.out.println("Words: " + cc.getWords());
-        System.out.println("Longest word: " + cc.getLongestWord());
+        System.out.println("The longest word: " + cc.getLongestWord());
     }
 }
