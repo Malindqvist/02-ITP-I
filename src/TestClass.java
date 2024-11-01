@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 public class TestClass {
     @Test
     //Kontrollerar om strängen är tom
-    void testIsEmptyString(){
+    void testIsEmptyString_withEmptyString_returnsTrue(){
         CounterClass cc = new CounterClass();
         boolean expected = true;
 
@@ -14,7 +14,7 @@ public class TestClass {
 
     @Test
     //Kontrollerar att det går att skriva endast ett mellanslag som input
-    void testIsEmptyStringWithSpace(){
+    void testIsEmptyString_withBlankSpace_returnsFalse(){
         CounterClass cc = new CounterClass();
         boolean expected = false;
 
@@ -59,7 +59,7 @@ public class TestClass {
 
     @Test
     //Testar beräkningen för det längsta ordet
-    void testLongestWord(){
+    void testCounterLongestWord(){
         CounterClass cc = new CounterClass();
         cc.counter("häst katten ko");
         String expected = "katten";
@@ -69,8 +69,8 @@ public class TestClass {
     }
 
     @Test
-    //Testar att funktionen reagerar på ordet "stop"
-    void testStopInput(){
+    //Testar att metoden counter() reagerar på ordet "stop"
+    void testCounterInput_withInvalidInput_returnsTrue(){
         CounterClass cc = new CounterClass();
         boolean expected = false;
 
@@ -79,8 +79,8 @@ public class TestClass {
     }
 
     @Test
-    //Testar att funktionen inte reagerar på ordet "stopp"
-    void testStopInputStopp(){
+    //Testar att metoden counter() inte reagerar på ordet "stopp"
+    void testCounterInput_withValidInput_returnsFalse(){
         CounterClass cc = new CounterClass();
         boolean expected = true;
 
