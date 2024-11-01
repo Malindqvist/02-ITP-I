@@ -1,4 +1,57 @@
+import org.junit.jupiter.api.Test;
+import static org.junit.Assert.assertEquals;
+
 public class TestClass {
+    @Test
+    void testIfEmpty(){
+        CounterClass cc = new CounterClass();
+        boolean expected = false;
+
+        boolean actual = true;
+        assertEquals(expected, actual);
+    }
+
+    //test för stopp
+    //test för längsta
+
+    @Test
+    void testCounterRows(){
+        CounterClass cc = new CounterClass();
+        cc.counter("katt ko häst");
+        cc.counter("ko häst");
+        int expected = 2;
+
+        int actual = cc.getRows();
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void testCounterChars(){
+        CounterClass cc = new CounterClass();
+        cc.counter("katt ko häst");
+        int expected = 12;
+
+        int actual = cc.getChars();
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void testLongestWord(){
+        CounterClass cc = new CounterClass();
+        cc.counter("häst katten ko");
+        String expected = "katten";
+
+//        String actual = cc.getLongest();
+//        assertEquals(expected, actual);
+    }
+
+    @Test
+    void testStopInput(){
+        CounterClass cc = new CounterClass();
+        cc.counter("stop");
+        boolean expected = false;
+        boolean actual = cc.counter("stop");
+    }
 
 }
 
