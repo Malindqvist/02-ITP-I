@@ -13,12 +13,12 @@ public class TestClass {
     }
 
     @Test
-    //Kontrollerar att det går att skriva endast ett mellanslag som input
-    void testIsEmptyString_withBlankSpace_returnsFalse(){
+    //Kontrollerar att det inte går att skriva enbart mellanslag som input
+    void testIsEmptyString_withBlankSpaces_returnsTrue(){
         CounterClass cc = new CounterClass();
-        boolean expected = false;
+        boolean expected = true;
 
-        boolean actual = cc.isEmptyString(" ");
+        boolean actual = cc.isEmptyString("    ");
         assertEquals(expected, actual);
     }
 
@@ -39,7 +39,7 @@ public class TestClass {
     void testCounterChars(){
         CounterClass cc = new CounterClass();
         cc.counter("katt ko häst");
-        int expected = 12;
+        int expected = 10;
 
         int actual = cc.getChars();
         assertEquals(expected, actual);
@@ -70,7 +70,7 @@ public class TestClass {
 
     @Test
     //Testar att metoden counter() reagerar på ordet "stop"
-    void testCounterInput_withInvalidInput_returnsTrue(){
+    void testCounterText_withStringStop_returnsFalse(){
         CounterClass cc = new CounterClass();
         boolean expected = false;
 
@@ -80,7 +80,7 @@ public class TestClass {
 
     @Test
     //Testar att metoden counter() inte reagerar på ordet "stopp"
-    void testCounterInput_withValidInput_returnsFalse(){
+    void testCounterText_withStringStopp_returnsTrue(){
         CounterClass cc = new CounterClass();
         boolean expected = true;
 

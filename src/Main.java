@@ -13,6 +13,12 @@ public class Main {
         //Så länge metoden counter() returnerar true så fortsätter programmet att läsa in textrader
         do {
             text = scanner.nextLine();
+
+            //Kontrollerar om strängen är tom innan metoden cc.counter() körs. Fortsätter läsa in rader tills något skrivs in.
+            while(cc.isEmptyString(text)){
+                System.out.println("Empty input. Please enter text.");
+                text = scanner.nextLine();
+            }
         } while (cc.counter(text));
 
         //Hämtar och skriver ut resultatet från CounterClass
@@ -20,5 +26,8 @@ public class Main {
         System.out.println("Rows: " + cc.getRows());
         System.out.println("Words: " + cc.getWords());
         System.out.println("The longest word: " + cc.getLongestWord());
+
+        //Stänger scannern
+        scanner.close();
     }
 }

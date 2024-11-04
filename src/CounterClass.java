@@ -12,8 +12,8 @@ public class CounterClass {
             //Ökar rows med 1
             rows++;
 
-            //Lägger till strängens längd i variabeln chars
-            chars += text.length();
+            //Tar bort alla mellanslag och lägger till strängens längd i variabeln chars
+            chars += text.replace(" ", "").length();
 
             //Skapar en array av strängar, separerat av mellanslag.
             String[] wordsArray = text.trim().split(" ");
@@ -28,7 +28,7 @@ public class CounterClass {
                 }
             }
 
-            //Metoden returnerar true och nästa rad läses in i Main-metoden
+            //Metoden returnerar true och nästa rad läses in via Main-metoden
             return true;
         } else {
             //Om texten innehåller ordet "stop" returneras false och resultatet skrivs ut via Main-metoden
@@ -56,8 +56,9 @@ public class CounterClass {
         return longestWord;
     }
 
-    //Kontrollerar om strängen är tom
+    //Kontrollerar om strängen är tom. Tar bort mellanslag i strängen före kontrollen
+    //för att det inte ska gå att skriva in endast mellanslag som input.
     public boolean isEmptyString(String text) {
-        return text.isEmpty();
+        return text.replace(" ", "").isEmpty();
     }
 }
