@@ -1,6 +1,9 @@
+import java.util.ArrayList;
+import java.util.List;
 
 public class CounterClass {
-    private String longestWord = "";
+    private final List<String> longestWord = new ArrayList<>();
+    private int longestWordLength;
     private int rows;
     private int chars;
     private int words;
@@ -21,10 +24,15 @@ public class CounterClass {
             //Antal ord i arrayen räknas med .length
             words += wordsArray.length;
 
-            //Plockar ut det längsta ordet och jämför längden med tidigare inskrivna längsta-ord
+            /* Jämför längden på orden i wordsArray. Om ett ord är längre än föregående ord så rensas listan innan det nya längsta-ordet läggs in.
+            * Om flera ord är lika långa så läggs de till i listan. */
             for(String word : wordsArray){
-                if(word.length() > longestWord.length()){
-                    longestWord = word;
+                if(word.length() > longestWordLength){
+                    longestWord.clear();
+                    longestWord.add(word);
+                    longestWordLength = word.length();
+                } else if(word.length() == longestWordLength){
+                    longestWord.add(word);
                 }
             }
 
@@ -53,7 +61,7 @@ public class CounterClass {
 
     //Returnerar det längsta ordet
     public String getLongestWord() {
-        return longestWord;
+        return longestWord.toString();
     }
 
     //Kontrollerar om strängen är tom. Tar bort mellanslag i strängen före kontrollen
