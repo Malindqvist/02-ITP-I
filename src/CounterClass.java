@@ -61,7 +61,7 @@ public class CounterClass {
 
     //Returnerar det längsta ordet
     public String getLongestWord() {
-        return longestWord.toString();
+        return longestWord.toString().replaceAll("[\\[\\]]" , "");
     }
 
     //Kontrollerar om strängen är tom. Tar bort mellanslag i strängen före kontrollen
